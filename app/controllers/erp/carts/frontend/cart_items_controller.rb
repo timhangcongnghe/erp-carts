@@ -9,6 +9,7 @@ module Erp
         def create
           product = Erp::Products::Product.find(params[:product_id])
           @cart_item = @cart.add_product(product.id)
+          @cart_item.menu_id = params[:menu_id] if params[:menu_id].present?
       
           if @cart_item.save
             redirect_to erp_online_store.root_path
@@ -20,6 +21,7 @@ module Erp
         def add_to_cart
           product = Erp::Products::Product.find(params[:product_id])
           @cart_item = @cart.add_product(product.id)
+          @cart_item.menu_id = params[:menu_id] if params[:menu_id].present?
       
           if @cart_item.save
             redirect_to erp_online_store.root_path
@@ -49,7 +51,7 @@ module Erp
       
           # Never trust parameters from the scary internet, only allow the white list through.
           def cart_item_params
-            params.require(:cart_item).permit(:product_id)
+            params.require(:cart_item).permit(:product_id, :menu_id)
           end
       end
     end
