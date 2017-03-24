@@ -20,12 +20,7 @@ module Erp
             redirect_to erp_online_store.root_path
           end
         end
-    
-        private
-          # Only allow a trusted parameter "white list" through.
-          def wish_list_params
-            params.fetch(:wish_list, {}).permit(:product_id)
-          end
+        
       end
     end
   end

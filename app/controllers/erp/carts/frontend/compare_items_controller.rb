@@ -19,12 +19,7 @@ module Erp
             redirect_to erp_online_store.root_path
           end
         end
-    
-        private
-          # Only allow a trusted parameter "white list" through.
-          def compare_line_params
-            params.fetch(:compare_line, {}).permit(:product_id)
-          end
+        
       end
     end
   end
