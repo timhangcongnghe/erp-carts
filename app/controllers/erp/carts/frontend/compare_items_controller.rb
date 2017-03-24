@@ -11,7 +11,6 @@ module Erp
           if exist.count == 0
             product = Erp::Products::Product.find(params[:product_id])
             @compare_item = @compare.compare_items.build(product: product)
-            @compare_item.menu_id = params[:menu_id] if params[:menu_id].present?
         
             if @compare_item.save
               redirect_to erp_online_store.root_path
@@ -24,7 +23,7 @@ module Erp
         private
           # Only allow a trusted parameter "white list" through.
           def compare_line_params
-            params.fetch(:compare_line, {}).permit(:product_id, :menu_id)
+            params.fetch(:compare_line, {}).permit(:product_id)
           end
       end
     end

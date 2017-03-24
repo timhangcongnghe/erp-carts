@@ -11,6 +11,11 @@ Erp::Carts::Engine.routes.draw do
       collection do
         get "add_to_compare"
       end    
-    end    
+    end
+    resources :wish_lists do
+      collection do
+        get "add_to_wish_list"
+      end    
+    end 
   end
 end
