@@ -3,12 +3,15 @@ module Erp::Carts
     has_many :cart_items, dependent: :destroy
     
     # add product - smarter cart
-    def add_product(product_id)
+    def add_product(product_id, quantity)
       current_item = cart_items.find_by(product_id: product_id)
-      if current_item
-        current_item.quantity += 1
+      if !current_item.present?
+        current_item = cart_items.build(product_id: product_id, quantity: 0)
+      end
+      if quantity.present?
+        current_item.quantity += quantity.to_i  
       else
-        current_item = cart_items.build(product_id: product_id)
+        current_item.quantity += 1
       end
         current_item
     end
