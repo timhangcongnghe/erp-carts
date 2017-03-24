@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Compare Lines</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @compare_lines.each do |compare_line| %>
+      <tr>
+        <td><%= link_to 'Show', compare_line %></td>
+        <td><%= link_to 'Edit', edit_compare_line_path(compare_line) %></td>
+        <td><%= link_to 'Destroy', compare_line, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Compare Line', new_compare_line_path %>
