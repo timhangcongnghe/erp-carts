@@ -4,7 +4,7 @@ module Erp::Carts
     belongs_to :cart
     
     def product_name
-      product.present? ? product.name : ''
+      product.present? ? product.short_name : ''
     end
     
     def product_price

@@ -1,7 +1,7 @@
 module Erp::Carts
   class Compare < ApplicationRecord
-    has_many :compare_items, dependent: :destroy
-  
+    has_many :compare_items, dependent: :destroy      
+    
     def get_number_items
       self.compare_items.count
     end

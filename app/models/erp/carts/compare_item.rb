@@ -3,6 +3,10 @@ module Erp::Carts
     belongs_to :product, class_name: "Erp::Products::Product"
     belongs_to :compare
     
+    def product_name
+      product.present? ? product.short_name : ''
+    end
+    
     def self.get_all_items
       self.order("created_at DESC")
     end
