@@ -14,7 +14,7 @@ module Erp::Carts
     # get comparision hash
     def self.get_comparision_hash(compare_items)
 			hash = {}
-			compare_items.each_with_index do |compare_item, index|
+			compare_items.get_all_items.each_with_index do |compare_item, index|
 				compare_item.product.get_product_property_array.each do |property|
 					hash[property[:name]] = [] if !hash[property[:name]].present?
 					hash[property[:name]][index] = property[:values]
