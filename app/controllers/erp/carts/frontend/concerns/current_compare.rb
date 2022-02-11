@@ -4,7 +4,6 @@ module Erp
       module Concerns
         module CurrentCompare
           extend ActiveSupport::Concern
-          
           private
             def set_compare
               @compare = Erp::Carts::Compare.find(session[:compare_id])

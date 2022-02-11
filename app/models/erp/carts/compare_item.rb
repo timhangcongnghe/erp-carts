@@ -1,17 +1,16 @@
 module Erp::Carts
   class CompareItem < ApplicationRecord
-    belongs_to :product, class_name: "Erp::Products::Product"
-    belongs_to :compare
+    belongs_to :product, class_name: 'Erp::Products::Product'
+    belongs_to :compare, class_name: 'Erp::Carts::Compare'
     
-    def product_name
-      product.present? ? product.short_name : ''
+    def get_product_name
+      product.present? ? product.get_short_name : ''
     end
     
     def self.get_all_items
-      self.order("created_at DESC")
+      order('created_at DESC')
     end
     
-    # get comparision hash
     def self.get_comparision_hash(compare_items)
 			hash = {}
 			compare_items.get_all_items.each_with_index do |compare_item, index|
@@ -22,6 +21,5 @@ module Erp::Carts
 			end
 			hash
 		end
-    
   end
 end

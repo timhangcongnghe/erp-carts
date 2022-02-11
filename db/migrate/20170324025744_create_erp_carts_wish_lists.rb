@@ -3,7 +3,6 @@ class CreateErpCartsWishLists < ActiveRecord::Migration[5.0]
     create_table :erp_carts_wish_lists do |t|
       t.references :product, index: true, references: :erp_products_products
       t.belongs_to :user, index: true, belongs_to: :erp_users
-
       t.timestamps
     end
   end

@@ -4,7 +4,6 @@ module Erp
       module Concerns
         module CurrentCart
           extend ActiveSupport::Concern
-          
           private
             def set_cart
               @cart = Erp::Carts::Cart.find(session[:cart_id])
